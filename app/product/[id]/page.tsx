@@ -2,11 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Product } from "@/data/products";
 
-type Props = {
-  params: {id: string;};
-};
-
-export default async function ProductPage({ params }: Props) {
+export default async function ProductPage({params,}: {params: { id: string };}) {
   const { id } = params;
 
   if (!id) {
