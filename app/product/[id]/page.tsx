@@ -7,7 +7,7 @@ type Props = {
 };
 
 export default async function ProductPage({ params }: Props) {
-  const { id } = await params;
+  const { id } = params;
 
   if (!id) {
     return <NotFoundMessage />;
