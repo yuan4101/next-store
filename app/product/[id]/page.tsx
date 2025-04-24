@@ -2,27 +2,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { Product } from "@/data/products";
 
-export default async function ProductPage({params,}: {params: { id: string };}) {
-  const { id } = params;
+type Props = {
+  params: Promise<{id: string}>;
+};
 
-  if (!id) {
-    return <NotFoundMessage />;
-  }
+export default async function ProductPage(props: Props) {
+  const {id} = await props.params;
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products`, {
     cache: "no-store",
   });
 
-  if (!res.ok) {
-    return <NotFoundMessage />;
-  }
+  if (!res.ok) return <NotFoundMessage />;
 
   const products: Product[] = await res.json();
   const product = products.find((p) => p.id === id);
 
-  if (!product) {
-    return <NotFoundMessage />;
-  }
+  if (!product) return <NotFoundMessage />;
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start p-6 max-w-5xl mx-auto">
@@ -35,7 +31,7 @@ export default async function ProductPage({params,}: {params: { id: string };}) 
         />
       </div>
 
-      <div className="flex flex-col justify-center w-full p-4 sm:p-6 md:p-6 bg-white rounded-xl shadow-md border border-gray-100">
+      <div className="flex flex-col justify-center w-full p-4 sm:p-6 bg-white rounded-xl shadow-md border border-gray-100">
         <h1 className="text-3xl font-bold text-pink-700 mb-4">{product.name}</h1>
         <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-6 text-justify">
           {product.description}
@@ -61,7 +57,6 @@ export default async function ProductPage({params,}: {params: { id: string };}) 
   );
 }
 
-// Componente para mensaje de no encontrado
 function NotFoundMessage() {
   return <p className="p-6">Producto no encontrado.</p>;
 }
