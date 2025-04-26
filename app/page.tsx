@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Product } from "../data/products";
+import { Product } from "../data/books";
 import Image from "next/image";
 
 export default function Home() {

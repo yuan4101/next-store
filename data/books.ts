@@ -6,6 +6,9 @@ export type Product = {
     download: string;
 }
 
+const imgRoute = "/books/img";
+const epubRoute = "/books/epub";
+
 export const products: Product[] = [
   {
     id: "tu-y-otros-desastres-naturales",
@@ -19,8 +22,8 @@ export const products: Product[] = [
     Porque una sola decisión puede cambiarlo todo y nada da más miedo que arriesgarse por tus sueños. 
     Porque la vida no se trata de sobrevivir a la tormenta, sino de aprender a bailar bajo ella.
     `,
-    image: "/tu_y_otros_desastres_naturales_img.jpg",
-    download: "/tu_y_otros_desastres_naturales_libro.epub",
+    image: `${imgRoute}/tu_y_otros_desastres_naturales_img.jpg`,
+    download: `${epubRoute}/tu_y_otros_desastres_naturales_libro.epub`,
   },
   {
     id: "la-fragilidad-de-un-corazon-bajo-la-lluvia",
@@ -35,8 +38,8 @@ export const products: Product[] = [
     Donde la lluvia cuenta historias y esconde secretos. Porque hay instantes que marcan toda una vida. 
     Porque a veces volver para decir «adiós» es lo único que puede salvarnos.
     `,
-    image: "/la_fragilidad_de_un_corazon_bajo_la_lluvia_img.jpg",
-    download: "/la_fragilidad_de_un_corazon_bajo_la_lluvia_libro.epub",
+    image: `${imgRoute}/la_fragilidad_de_un_corazon_bajo_la_lluvia_img.jpg`,
+    download: `${epubRoute}/la_fragilidad_de_un_corazon_bajo_la_lluvia_libro.epub`,
   },
   {
     id: "el-mapa-de-los-anhelos",
@@ -52,8 +55,8 @@ export const products: Product[] = [
     lleno de vulnerabilidades y sueños olvidados, anhelos y afectos inesperados. 
     Pero ¿es posible avanzar cuando los secretos comienzan a pesar demasiado? ¿Quién es quién en esta historia?
     `,
-    image: "/el_mapa_de_los_anhelos_img.jpg",
-    download: "/el_mapa_de_los_anhelos_libro.epub",
+    image: `${imgRoute}/el_mapa_de_los_anhelos_img.jpg`,
+    download: `${epubRoute}/el_mapa_de_los_anhelos_libro.epub`,
   },
   {
     id: "donde-todo-brilla",
@@ -71,8 +74,8 @@ export const products: Product[] = [
     rescatar pedazos de lo que fueron y entender aquello que rompieron. 
     Y quizá así, uniendo y encajando cada fragmento, logren descubrir quiénes son ahora y recordar el brillo de las cosas intangibles.
     `,
-    image: "/donde_todo_brilla_img.jpg",
-    download: "/donde_todo_brilla_libro.epub",
+    image: `${imgRoute}/donde_todo_brilla_img.jpg`,
+    download: `${epubRoute}/donde_todo_brilla_libro.epub`,
   },
   {
     id: "el-amor-que-dejamos-atras",
@@ -95,8 +98,8 @@ export const products: Product[] = [
     Georgia sabe que el amor nunca funciona, y aunque la química y la conexión entre ella y Noah es innegable, 
     está más decidida que nunca a no cometer los mismos errores  del pasado, incluso si eso significa destruir la carrera de Noah.
     `,
-    image: "/el_amor_que_dejamos_atras_img.jpg",
-    download: "/el_amor_que_dejamos_atras_libro.epub",
+    image: `${imgRoute}/el_amor_que_dejamos_atras_img.jpg`,
+    download: `${epubRoute}/el_amor_que_dejamos_atras_libro.epub`,
   },
   {
     id: "llamame-cuando-no-te-encuentres",
@@ -106,8 +109,8 @@ export const products: Product[] = [
     No es verdad, yo se lo di desde el primer segundo en que la vi, pero déjala que piense que me lo robó. 
     Un libro que solo se le dedica a esa persona que, estás seguro vas a amar toda la vida, sí, incluso cuando digas que ya la olvidaste.
     `,
-    image: "/llamame_cuando_no_te_encuentres_img.jpg",
-    download: "/llamame_cuando_no_te_encuentres_libro.epub",
+    image: `${imgRoute}/llamame_cuando_no_te_encuentres_img.jpg`,
+    download: `${epubRoute}/llamame_cuando_no_te_encuentres_libro.epub`,
   },
   {
     id: "todos-los-lugares-que-mantuvimos-en-secreto",
@@ -129,8 +132,8 @@ export const products: Product[] = [
     La autora de Hasta que nos quedemos sin estrellas y El arte de ser nosotros, 
     que ha llevado al límite de sus emociones a miles de lectoras. 
     `,
-    image: "/todos_los_lugares_que_mantuvimos_en_secreto_img.jpg",
-    download: "/todos_los_lugares_que_mantuvimos_en_secreto_libro.epub",
+    image: `${imgRoute}/todos_los_lugares_que_mantuvimos_en_secreto_img.jpg`,
+    download: `${epubRoute}/todos_los_lugares_que_mantuvimos_en_secreto_libro.epub`,
   },
   {
     id: "lo-que-la-nieve-susurra-al-caer",
@@ -148,7 +151,7 @@ export const products: Product[] = [
     Mientras la nieve cae silenciosa, Hunter y Willow descubrirán que el destino no siempre tiene la última palabra y que los momentos, 
     buenos o malos, nos van convirtiendo en todo lo que somos.
     `,
-    image: "/lo_que_la_nieve_susurra_al_caer_img.jpg",
-    download: "/lo_que_la_nieve_susurra_al_caer_libro.epub",
+    image: `${imgRoute}/lo_que_la_nieve_susurra_al_caer_img.jpg`,
+    download: `${epubRoute}/lo_que_la_nieve_susurra_al_caer_libro.epub`,
   },
 ];
