@@ -1,42 +1,62 @@
-import "./globals.css";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import Link from "next/link";
+/**
+ * @file layout.tsx
+ * @brief Plantilla principal de la aplicacion
+ * @details Estructura base compartida por todas las paginas (Color de fondo, Fuentes, Iconos, Metadata)
+ * @author Juan Ante
+ * @date 2025
+ */
 
-const inter = Inter({ subsets: ["latin"] });
+import "./globals.css";
+import { Tangerine, Roboto_Flex } from 'next/font/google';
+import type { Metadata } from "next";
+import Link from "next/link";
+import Navbar from "./components/navbar";
+import ShoppingCart from "./components/shoppingCart";
+import { CartProvider } from './context/CartContext';
+
+const tangerine = Tangerine({
+  weight: '700',
+  subsets: ['latin'],
+  variable: '--font-tangerine',
+  display: 'swap',
+});
+
+const roboto_flex = Roboto_Flex({
+  weight: ['400','700'],
+  subsets: ['latin-ext'],
+  variable: '--font-roboto_flex',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
-  title: "Romance Vainilla 💖",
-  description: "Con amor para mi esposa 💖",
+  title: "Mas que letras - Store",
+  description: "Made with love ❤️",
   icons: {
-    icon: "/bookIcon.png",
+    icon: "/icons/storefront.svg",
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="es">
-      <body className={`${inter.className} bg-pink-50 text-gray-800`}>
-        {/* Header global */}
-        <header className="sticky top-0 z-50 bg-white shadow-md py-4">
-          <div className="max-w-6xl mx-auto flex items-center justify-center px-4">
-            <Link href="/">
-              <h1 className="text-3xl font-bold text-pink-600 tracking-wide">
-                Romance Vainilla 💖
-              </h1>
-              <h2 className="text-xl font-light text-pink-600 tracking-wide">
-                ¿Porque conformarse con uno, cuando te preparé este catálogo?
-              </h2>
-            </Link>
-          </div>
-        </header>
+export default function RootLayout({children,}: {children: React.ReactNode;}) {
 
-        {/* Main content */}
-        <main className="max-w-6xl mx-auto px-4 py-10">{children}</main>
+  return (
+    <html lang="es" className={`${tangerine.variable} ${roboto_flex.variable}`}>
+      <body>
+        <CartProvider>
+          <header className="sticky bg-[var(--color-bg)] top-0 z-50 shadow-md py-4">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex justify-center text-6xl pb-3">
+                <Link href="/">
+                  <h1>Mas que letras</h1>
+                </Link>
+              </div>
+              <div className="flex items-center justify-between">
+                <Navbar></Navbar>
+                <ShoppingCart></ShoppingCart>
+              </div>
+            </div>
+          </header>
+          <main className="max-w-6xl mx-auto px-5 py-5">{children}</main>
+        </CartProvider>
       </body>
     </html>
   );

@@ -1,0 +1,50 @@
+\doxysection{page.\+tsx}
+\hypertarget{page_8tsx_source}{}\label{page_8tsx_source}\index{C:/Users/juan0/Github/next-\/store/app/page.tsx@{C:/Users/juan0/Github/next-\/store/app/page.tsx}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00001}00001\ \textcolor{stringliteral}{"{}use\ client"{}};}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00003}00003\ \textcolor{keyword}{import}\ \{\ useEffect,\ useState\ \}\ from\ \textcolor{stringliteral}{"{}react"{}};}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00004}00004\ \textcolor{keyword}{import}\ Link\ from\ \textcolor{stringliteral}{"{}next/link"{}};}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00005}00005\ \textcolor{keyword}{import}\ \{\ Product\ \}\ from\ \textcolor{stringliteral}{"{}../data/products"{}};}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00006}00006\ \textcolor{keyword}{import}\ Image\ from\ \textcolor{stringliteral}{"{}next/image"{}};}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00008}00008\ export\ \textcolor{keywordflow}{default}\ \textcolor{keyword}{function}\ Home()\ \{}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00009}00009\ \ \ \textcolor{keyword}{const}\ [products,\ setProducts]\ =\ useState<Product[]>([]);}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00011}00011\ \ \ useEffect(()\ =>\ \{}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00012}00012\ \ \ \ \ fetch(\textcolor{stringliteral}{"{}/api/products"{}})}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00013}00013\ \ \ \ \ \ \ .then((res)\ =>\ res.json())}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00014}00014\ \ \ \ \ \ \ .then((data)\ =>\ setProducts(data));}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00015}00015\ \ \ \},\ []);}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00017}00017\ \ \ \textcolor{keywordflow}{return}\ (}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00018}00018\ \ \ \ \ <div\ className=\textcolor{stringliteral}{"{}shadow-\/xl\ rounded-\/2xl\ border\ border-\/gray-\/200\ bg-\/neutral-\/100\ p-\/6"{}}>}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00019}00019\ \ \ \ \ \ \ <div\ className=\textcolor{stringliteral}{"{}grid\ grid-\/cols-\/1\ sm:grid-\/cols-\/2\ md:grid-\/cols-\/3\ lg:grid-\/cols-\/4\ gap-\/8"{}}>}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00020}00020\ \ \ \ \ \ \ \ \ \{products.map((product)\ =>\ (}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ <Link}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ key=\{product.id\}}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ href=\{\`{}/product/\$\{product.id\}\`{}\}}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ className=\textcolor{stringliteral}{"{}bg-\/purple-\/50\ border-\/4\ border-\/pink-\/200\ rounded-\/2xl\ overflow-\/hidden\ hover:shadow-\/xl\ transition\ transform\ hover:-\/translate-\/y-\/1"{}}}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ >}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ <div\ className=\textcolor{stringliteral}{"{}relative\ w-\/full\ max-\/h-\/105\ lg:max-\/h-\/73\ aspect-\/[9/16]\ bg-\/pink-\/100"{}}>}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <Image}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ src=\{product.image\}}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ alt=\{product.name\}}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fill}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ className=\textcolor{stringliteral}{"{}object-\/cover"{}}}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ />}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ </div>}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ <div\ className=\textcolor{stringliteral}{"{}p-\/4"{}}>}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <h2\ className=\textcolor{stringliteral}{"{}text-\/xl\ font-\/semibold\ text-\/pink-\/700\ text-\/center"{}}>}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{product.name\}}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ </h2>}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ </div>}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ </Link>}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00040}00040\ \ \ \ \ \ \ \ \ ))\}}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00041}00041\ \ \ \ \ \ \ </div>}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00042}00042\ \ \ \ \ </div>}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00043}00043\ \ \ );}
+\DoxyCodeLine{\Hypertarget{page_8tsx_source_l00044}00044\ \}}
+
+\end{DoxyCode}

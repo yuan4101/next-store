@@ -1,0 +1,63 @@
+\doxysection{layout.\+tsx}
+\hypertarget{layout_8tsx_source}{}\label{layout_8tsx_source}\index{C:/Users/juan0/Github/next-\/store/app/layout.tsx@{C:/Users/juan0/Github/next-\/store/app/layout.tsx}}
+\mbox{\hyperlink{layout_8tsx}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00009}00009\ \textcolor{keyword}{import}\ \textcolor{stringliteral}{"{}./globals.css"{}};}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00010}00010\ \textcolor{keyword}{import}\ type\ \{\ Metadata\ \}\ from\ \textcolor{stringliteral}{"{}next"{}};}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00011}00011\ \textcolor{keyword}{import}\ Link\ from\ \textcolor{stringliteral}{"{}next/link"{}};}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00012}00012\ \textcolor{keyword}{import}\ HomeIcon\ from\ \textcolor{stringliteral}{"{}@mui/icons-\/material/Home"{}};}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00013}00013\ \textcolor{keyword}{import}\ \{\ Tangerine,\ Roboto\_Flex\ \}\ from\ \textcolor{stringliteral}{'next/font/google'};}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00026}\mbox{\hyperlink{group___fuentes_ga3bf3e4a9b49ce2447cfa0d9bed8e99ad}{00026}}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{group___fuentes_ga3bf3e4a9b49ce2447cfa0d9bed8e99ad}{tangerine}}\ =\ Tangerine(\{}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00027}00027\ \ \ weight:\ \textcolor{stringliteral}{'700'},}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00028}00028\ \ \ subsets:\ [\textcolor{stringliteral}{'latin'}],}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00029}00029\ \ \ variable:\ \textcolor{stringliteral}{'-\/-\/font-\/tangerine'},}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00030}00030\ \ \ display:\ \textcolor{stringliteral}{'swap'},}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00031}00031\ \});}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00038}\mbox{\hyperlink{group___fuentes_ga894652042c35351cf9f4b21a4d792a9b}{00038}}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{group___fuentes_ga894652042c35351cf9f4b21a4d792a9b}{roboto\_flex}}\ =\ Roboto\_Flex(\{}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00039}00039\ \ \ weight:\ [\textcolor{stringliteral}{'400'},\textcolor{stringliteral}{'700'}],}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00040}00040\ \ \ subsets:\ [\textcolor{stringliteral}{'latin-\/ext'}],}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00041}00041\ \ \ variable:\ \textcolor{stringliteral}{'-\/-\/font-\/roboto\_flex'},}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00042}00042\ \ \ display:\ \textcolor{stringliteral}{'swap'},}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00043}00043\ \});}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00057}\mbox{\hyperlink{group___metadata_gae42fc9b7ebfd7686241075b48b867e6f}{00057}}\ export\ \textcolor{keyword}{const}\ \mbox{\hyperlink{group___metadata_gae42fc9b7ebfd7686241075b48b867e6f}{metadata}}:\ Metadata\ =\ \{}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00058}00058\ \ \ title:\ \textcolor{stringliteral}{"{}Store"{}},}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00059}00059\ \ \ description:\ \textcolor{stringliteral}{"{}Made\ with\ love\ ❤️"{}},}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00060}00060\ \ \ icons:\ \{}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00061}00061\ \ \ \ \ icon:\ \textcolor{stringliteral}{"{}/icons/storefront.svg"{}},}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00062}00062\ \ \ \},}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00063}00063\ \};}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00066}00066\ export\ \textcolor{keywordflow}{default}\ \textcolor{keyword}{function}\ RootLayout(\{children,\}:\ \{children:\ React.ReactNode;\})\ \{}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00067}00067\ \ \ \textcolor{keywordflow}{return}\ (}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00068}00068\ \ \ \ \ <html\ lang=\textcolor{stringliteral}{"{}es"{}}\ className=\{\`{}\$\{\mbox{\hyperlink{group___fuentes_ga3bf3e4a9b49ce2447cfa0d9bed8e99ad}{tangerine}}.variable\}\ \$\{\mbox{\hyperlink{group___fuentes_ga894652042c35351cf9f4b21a4d792a9b}{roboto\_flex}}.variable\}\`{}\}>}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00069}00069\ \ \ \ \ \ \ <body>}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00070}00070\ \ \ \ \ \ \ \ \ \{\textcolor{comment}{/*\ Header\ global\ */}\}}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00071}00071\ \ \ \ \ \ \ \ \ <header\ className=\textcolor{stringliteral}{"{}sticky\ top-\/0\ z-\/50\ bg-\/white\ shadow-\/md\ py-\/4"{}}>}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ <div\ className=\textcolor{stringliteral}{"{}max-\/w-\/6xl\ mx-\/auto\ flex\ items-\/center\ justify-\/center\ px-\/4"{}}>}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ <Link\ href=\textcolor{stringliteral}{"{}/"{}}>}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <HomeIcon\ />}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <h1\ className=\textcolor{stringliteral}{"{}text-\/3xl\ text-\/pink-\/600\ tracking-\/wide"{}}>}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Esta\ es\ una\ ñ\ -\/\ Romance\ Vainilla\ 💖}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ </h1>}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <h2\ className=\textcolor{stringliteral}{"{}text-\/xl\ text-\/pink-\/600\ tracking-\/wide"{}}>}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Esta\ es\ una\ ñ\ -\/\ ¿Porque\ conformarse\ con\ uno,\ cuando\ te\ preparé\ este\ catálogo?}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ </h2>}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ </Link>}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ </div>}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00083}00083\ \ \ \ \ \ \ \ \ </header>}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00085}00085\ \ \ \ \ \ \ \ \ \{\textcolor{comment}{/*\ Main\ content\ */}\}}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00086}00086\ \ \ \ \ \ \ \ \ <main\ className=\textcolor{stringliteral}{"{}max-\/w-\/6xl\ mx-\/auto\ px-\/4\ py-\/10"{}}>\{children\}</main>}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00087}00087\ \ \ \ \ \ \ </body>}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00088}00088\ \ \ \ \ </html>}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00089}00089\ \ \ );}
+\DoxyCodeLine{\Hypertarget{layout_8tsx_source_l00090}00090\ \}}
+
+\end{DoxyCode}
