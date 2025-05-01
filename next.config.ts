@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "Access-Control-Allow-Origin",
-            value: "https://tudominio.vercel.app", // Reemplaza con tu URL en Vercel
+            value: "https://next-store-juan-antes-projects.vercel.app", // Reemplaza con tu URL en Vercel
           },
           { key: "Access-Control-Allow-Methods", value: "GET,OPTIONS,POST" },
         ],
