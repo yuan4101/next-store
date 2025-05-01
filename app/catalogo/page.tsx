@@ -20,6 +20,19 @@ export default function Catalogo() {
     type: 'success' | 'error' | 'warning' | 'info';
   } | null>(null);
   
+useEffect(() => {
+  const testFetch = async () => {
+    try {
+      const res = await fetch("/api/products");
+      const data = await res.json();
+      console.log("API response:", data);
+    } catch (error) {
+      console.error("Fetch error:", error); // Esto te dará el error real
+    }
+  };
+  testFetch();
+}, []);
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
