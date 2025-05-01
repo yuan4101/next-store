@@ -7,17 +7,17 @@ export default function Navbar() {
   const pathName = usePathname();
 
   return (
-    <div className="flex space-x-6">
+    <div className="text-white flex space-x-6">
 
         {/* Catalogo */}
         <Link
           href="/catalogo"
-          className={`relative group text-gray-900 hover:text-pink-600 transition-colors 
-            ${pathName === '/catalogo' ? 'text-pink-600' : ''}`}
+          className={`relative group hover:text-[#F7A5C0] transition-colors 
+            ${pathName === '/catalogo' ? 'text-[#F7A5C0]' : ''}`}
         >
           Catálogo
           <span
-            className={`absolute left-0 bottom-0 h-0.5 bg-pink-600 transition-all duration-300 
+            className={`absolute left-0 bottom-0 h-0.5 bg-[#F7A5C0] transition-all duration-300 
                 ${pathName === '/catalogo' ? 'w-full' : 'w-0 group-hover:w-full'}`}
           ></span>
         </Link>
@@ -25,13 +25,13 @@ export default function Navbar() {
         {/* Nosotros */}
         <Link
           href="/nosotros"
-          className={`relative group text-[var(--color-text)] hover:text-pink-600 transition-colors ${
-            pathName === '/nosotros' ? 'text-pink-600' : ''
+          className={`relative group hover:text-[#F7A5C0] transition-colors ${
+            pathName === '/nosotros' ? 'text-[#F7A5C0]' : ''
           }`}
         >
           Acerca de nosotros
           <span
-            className={`absolute left-0 bottom-0 h-0.5 bg-pink-600 transition-all duration-300 ${
+            className={`absolute left-0 bottom-0 h-0.5 bg-[#F7A5C0] transition-all duration-300 ${
               pathName === '/nosotros' ? 'w-full' : 'w-0 group-hover:w-full'
             }`}
           ></span>

@@ -39,8 +39,13 @@ export default function ShoppingCart() {
   return (
     <div className="flex items-center">
       <IconButton onClick={toggleCart}>
-        <Badge badgeContent={cartCount} color="primary">
-          <ShoppingCartIcon />
+        <Badge badgeContent={cartCount} sx={{
+          '& .MuiBadge-badge': {
+          backgroundColor: '#F4611E', // tu color hex personalizado
+          color: 'white',             // color del texto dentro del badge
+          }
+        }}>
+          <ShoppingCartIcon sx={{ color: 'white' }}/>
         </Badge>
       </IconButton>
 

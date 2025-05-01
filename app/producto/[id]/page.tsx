@@ -1,6 +1,6 @@
 "use client";
 
-import { Product } from "@/data/products";
+import { Product } from "../../types/product";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -24,7 +24,7 @@ export default function ProductPage({ params }: { params : Promise<{ id: string 
   useEffect(() => {    
     const fetchProduct = async () => {
       try {
-        const res = await fetch(`/api/products`);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products`);
         if (!res.ok) throw new Error("Error al cargar productos");
         
         const products: Product[] = await res.json();
@@ -70,7 +70,7 @@ export default function ProductPage({ params }: { params : Promise<{ id: string 
         id: product.id,
       name: product.name,
       price: product.price,
-      image: product.image,
+      image: product.image_path,
       stock: product.stock,
       quantity: 1,
     });
@@ -122,10 +122,20 @@ export default function ProductPage({ params }: { params : Promise<{ id: string 
         <div className="bg-[var(--color-card)] border border-[--color-border] rounded-2xl overflow-hidden shadow-md">
           <div className="relative w-full aspect-square">
             <Image
-              src={product.image}
+              src={product.image_path ? 
+                `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/product-images/${product.image_path}` : 
+                '/icons/file.svg'
+              }
               alt={product.name}
               fill
-              className="object-cover"
+              priority={true}
+              className="object-cover rounded-t-2xl shadow-sm"
+              sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
+              onError={(e) => {
+              // Fallback si la imagen falla al cargar
+                (e.target as HTMLImageElement).src = "/icons/file.svg";
+                (e.target as HTMLImageElement).classList.add("p-4", "opacity-70");
+              }}
             />
           </div>
         </div>
@@ -145,9 +155,7 @@ export default function ProductPage({ params }: { params : Promise<{ id: string 
               Precio: <span className="text-pink-600">${product.price.toLocaleString()}</span>
             </p>
             <p>Disponibles: {product.stock}</p>
-            {product.size && (
-              <p>Medidas: {product.size.largo} × {product.size.ancho} × {product.size.alto}</p>
-            )}
+            <p>Agarre: {product.grip}</p>
           </div>
 
           <div className="flex flex-col gap-4 pt-2">

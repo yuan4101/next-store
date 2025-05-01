@@ -13,6 +13,7 @@ import Link from "next/link";
 import Navbar from "./components/navbar";
 import ShoppingCart from "./components/shoppingCart";
 import { CartProvider } from './context/CartContext';
+import Image from "next/image";
 
 const tangerine = Tangerine({
   weight: '700',
@@ -42,16 +43,26 @@ export default function RootLayout({children,}: {children: React.ReactNode;}) {
     <html lang="es" className={`${tangerine.variable} ${roboto_flex.variable}`}>
       <body>
         <CartProvider>
-          <header className="sticky bg-[var(--color-bg)] top-0 z-50 shadow-md py-4">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex justify-center text-6xl pb-3">
-                <Link href="/">
-                  <h1>Mas que letras</h1>
+          <header className="sticky bg-[var(--color-bg)] top-0 z-50 shadow-md pt-3">
+            <div className="pb-3">
+              <div className="flex justify-center h-[100px]">
+                <Link href="/" className="relative block w-full h-full">
+                  <Image
+                    src="/logoElisa.png"
+                    alt="Logo Elisa & Co"
+                    fill
+                    priority={true}
+                    className="object-contain"
+                  />
                 </Link>
               </div>
-              <div className="flex items-center justify-between">
-                <Navbar></Navbar>
-                <ShoppingCart></ShoppingCart>
+            </div>
+            <div className="bg-[#AB0A36] py-2">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex items-center justify-between">
+                  <Navbar></Navbar>
+                  <ShoppingCart></ShoppingCart>
+                </div>
               </div>
             </div>
           </header>
