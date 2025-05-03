@@ -7,7 +7,7 @@
  */
 
 import "./globals.css";
-import { Tangerine, Roboto_Flex } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "./components/navbar";
@@ -15,40 +15,38 @@ import ShoppingCart from "./components/shoppingCart";
 import { CartProvider } from './context/CartContext';
 import Image from "next/image";
 
-const tangerine = Tangerine({
-  weight: '700',
-  subsets: ['latin'],
-  variable: '--font-tangerine',
-  display: 'swap',
-});
-
-const roboto_flex = Roboto_Flex({
-  weight: ['400','700'],
+const inter = Inter({
+  weight: ['300','500', '700'],
+  style:['normal', 'italic'],
   subsets: ['latin-ext'],
-  variable: '--font-roboto_flex',
+  variable: '--font-inter',
   display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: "Mas que letras - Store",
-  description: "Made with love ❤️",
+  title: "Elisa & CO - HAIRCLIPS",
+  description: "Hairclips, hairclaws y estilo según tu mood 🧡",
   icons: {
-    icon: "/icons/storefront.svg",
+    icon: "/icons/elisaicono.webp",
+    apple: "/apple-touch-icon.png",
+  },
+  openGraph: {
+    images: [`${process.env.NEXT_PUBLIC_BASE_URL}/preview-contacto.webp`], // Imagen específica
   },
 };
 
 export default function RootLayout({children,}: {children: React.ReactNode;}) {
 
   return (
-    <html lang="es" className={`${tangerine.variable} ${roboto_flex.variable}`}>
+    <html lang="es" className={`${inter.variable}`}>
       <body>
         <CartProvider>
           <header className="sticky bg-[var(--color-bg)] top-0 z-50 shadow-md pt-3">
-            <div className="pb-3">
-              <div className="flex justify-center h-[100px]">
-                <Link href="/" className="relative block w-full h-full">
+            <div className="pb-2">
+              <div className="flex justify-center h-[70px]">
+                <Link href="/catalogo" className="relative block w-full h-full">
                   <Image
-                    src="/logoElisa.png"
+                    src="/elisalogoweb.webp"
                     alt="Logo Elisa & Co"
                     fill
                     priority={true}
@@ -57,7 +55,7 @@ export default function RootLayout({children,}: {children: React.ReactNode;}) {
                 </Link>
               </div>
             </div>
-            <div className="bg-[#AB0A36] py-2">
+            <div className="bg-[var(--color-navbar-bg)] py-2">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between">
                   <Navbar></Navbar>
@@ -66,7 +64,7 @@ export default function RootLayout({children,}: {children: React.ReactNode;}) {
               </div>
             </div>
           </header>
-          <main className="max-w-6xl mx-auto px-5 py-5">{children}</main>
+          <main className="max-w-6xl mx-auto px-5 py-3">{children}</main>
         </CartProvider>
       </body>
     </html>

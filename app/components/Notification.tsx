@@ -52,7 +52,10 @@ export const Notification = ({
       onClose={() => setOpen(false)}
       anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       sx={{
-        marginTop: '40px', // Ajusta según tu navbar
+        mt: {
+          xs: '28px',
+          md: '125px',
+        },
         '& .MuiAlert-root': {
           alignItems: 'center',
         },

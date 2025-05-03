@@ -54,6 +54,10 @@ export default function ProductPage({ params }: { params : Promise<{ id: string 
       return;
     }
 
+    const completeImageRoute = product.image_path ? 
+      `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/product-images/Productos/sm${product.image_path}` : 
+      '/icons/file.svg'
+
     // Obtener la cantidad actual en el carrito
     const currentQuantity = getProductQuantity(product.id);
     
@@ -70,7 +74,7 @@ export default function ProductPage({ params }: { params : Promise<{ id: string 
         id: product.id,
       name: product.name,
       price: product.price,
-      image: product.image_path,
+      image: completeImageRoute,
       stock: product.stock,
       quantity: 1,
     });
@@ -108,7 +112,7 @@ export default function ProductPage({ params }: { params : Promise<{ id: string 
       <div className="text-center">Producto no disponible</div>
       <button 
         onClick={handleBackToCatalog}
-        className="mt-4 inline-block text-pink-600 hover:underline cursor-pointer"
+        className="mt-4 inline-block text-pink-600 hover:underline cursor-pointer shadow-sm"
       >
         ← Volver al catálogo
       </button>
@@ -116,14 +120,14 @@ export default function ProductPage({ params }: { params : Promise<{ id: string 
   );
 
   return (
-    <div className="max-w-7xl mx-auto px-3 py-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+    <div className="max-w-7xl mx-auto px-3 pt-1">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-10">
         {/* Imagen del producto */}
-        <div className="bg-[var(--color-card)] border border-[--color-border] rounded-2xl overflow-hidden shadow-md">
+        <div className="bg-[var(--color-card)] rounded-2xl overflow-hidden shadow-md">
           <div className="relative w-full aspect-square">
             <Image
               src={product.image_path ? 
-                `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/product-images/${product.image_path}` : 
+                `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/product-images/Productos/lg/${product.image_path}` : 
                 '/icons/file.svg'
               }
               alt={product.name}
@@ -141,7 +145,7 @@ export default function ProductPage({ params }: { params : Promise<{ id: string 
         </div>
 
         {/* Detalles del producto */}
-        <div className="space-y-6">
+        <div className="space-y-6 md:pt-8">
           <h1 className="text-3xl font-bold text-[var(--color-text)]">
             {product.name}
           </h1>
@@ -152,7 +156,7 @@ export default function ProductPage({ params }: { params : Promise<{ id: string 
 
           <div className="space-y-2">
             <p className="text-xl font-semibold">
-              Precio: <span className="text-pink-600">${product.price.toLocaleString()}</span>
+              Precio: <span className="text-[var(--color-navbar-bg)]">${product.price.toLocaleString()}</span>
             </p>
             <p>Disponibles: {product.stock}</p>
             <p>Agarre: {product.grip}</p>
@@ -161,7 +165,7 @@ export default function ProductPage({ params }: { params : Promise<{ id: string 
           <div className="flex flex-col gap-4 pt-2">
             {product.stock <= 0 ? (<button className="bg-[var(--color-card)] text-red-500 text-xl px-6 py-3 rounded-lg">Agotado</button>) : (
               <button
-              className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition cursor-pointer"
+              className="shadow-sm bg-[var(--color-badge-light)] text-white px-6 py-3 rounded-lg hover:bg-[var(--color-badge)] transition cursor-pointer"
               onClick={handleAddToCart}
               >
                 Agregar al carrito
@@ -176,7 +180,7 @@ export default function ProductPage({ params }: { params : Promise<{ id: string 
             )}
             <button
               onClick={handleBackToCatalog}
-              className="bg-pink-600 text-white px-3 py-3 rounded-lg hover:bg-pink-700 transition cursor-pointer"
+              className="shadow-sm bg-[var(--color-button-pink-light)] text-white px-3 py-3 rounded-lg hover:bg-[var(--color-button-pink)] transition cursor-pointer"
             >
               ← Volver al catálogo
             </button>

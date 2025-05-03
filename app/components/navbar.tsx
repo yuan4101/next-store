@@ -7,32 +7,46 @@ export default function Navbar() {
   const pathName = usePathname();
 
   return (
-    <div className="text-white flex space-x-6">
+    <div className="text-[var(--color-navbar-text)] flex space-x-6">
 
         {/* Catalogo */}
         <Link
           href="/catalogo"
-          className={`relative group hover:text-[#F7A5C0] transition-colors 
-            ${pathName === '/catalogo' ? 'text-[#F7A5C0]' : ''}`}
+          className={`relative group hover:text-[var(--color-select)] transition-colors 
+            ${pathName === '/catalogo' ? 'text-[var(--color-select)]' : ''}`}
         >
           Catálogo
           <span
-            className={`absolute left-0 bottom-0 h-0.5 bg-[#F7A5C0] transition-all duration-300 
+            className={`absolute left-0 bottom-0 h-0.5 bg-[var(--color-select)] transition-all duration-300 
                 ${pathName === '/catalogo' ? 'w-full' : 'w-0 group-hover:w-full'}`}
           ></span>
         </Link>
 
         {/* Nosotros */}
         <Link
-          href="/nosotros"
-          className={`relative group hover:text-[#F7A5C0] transition-colors ${
-            pathName === '/nosotros' ? 'text-[#F7A5C0]' : ''
+          href="/about"
+          className={`relative group hover:text-[var(--color-select)] transition-colors ${
+            pathName === '/about' ? 'text-[var(--color-select)]' : ''
           }`}
         >
-          Acerca de nosotros
+          ¿Quién soy?
           <span
-            className={`absolute left-0 bottom-0 h-0.5 bg-[#F7A5C0] transition-all duration-300 ${
-              pathName === '/nosotros' ? 'w-full' : 'w-0 group-hover:w-full'
+            className={`absolute left-0 bottom-0 h-0.5 bg-[var(--color-select)] transition-all duration-300 ${
+              pathName === '/about' ? 'w-full' : 'w-0 group-hover:w-full'
+            }`}
+          ></span>
+        </Link>
+
+        <Link
+          href="/contacto"
+          className={`relative group hover:text-[var(--color-select)] transition-colors ${
+            pathName === '/contacto' ? 'text-[var(--color-select)]' : ''
+          }`}
+        >
+          Contáctanos
+          <span
+            className={`absolute left-0 bottom-0 h-0.5 bg-[var(--color-select)] transition-all duration-300 ${
+              pathName === '/contacto' ? 'w-full' : 'w-0 group-hover:w-full'
             }`}
           ></span>
         </Link>

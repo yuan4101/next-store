@@ -30,7 +30,8 @@ export default function Catalogo() {
         }
         
         const data = await response.json();
-        setProducts(data);
+        const filteredData = data.filter((product: Product) => product.image_path);
+        setProducts(filteredData);
       } catch (err) {
         setError(err instanceof Error ? err.message : "Error desconocido");
         setNotification({
@@ -61,7 +62,7 @@ export default function Catalogo() {
     }
 
     const completeImageRoute = product.image_path ? 
-      `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/product-images/${product.image_path}` : 
+      `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/product-images/Productos/sm${product.image_path}` : 
       '/icons/file.svg'
 
     const currentQuantity = getProductQuantity(product.id);
@@ -122,49 +123,63 @@ export default function Catalogo() {
         </div>
       )}
       
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
         {products.map((product, index) => (
           <div
             key={product.id}
             onClick={() => handleProductClick(product.id)}
-            className="group bg-[var(--color-card)] border border-[--color-border] rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:text-pink-600 transition transform hover:-translate-y-1 cursor-pointer"
+            className="lg:w-[200px] group bg-[var(--color-card-bg)] rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:text-[var(--color-navbar-bg)] transition transform hover:-translate-y-1 cursor-pointer flex flex-col h-full"
           >
-            <div className="relative w-full aspect-square bg-[var(--color-card)]">
-              <Image
-                src={product.image_path ? 
-                  `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/product-images/${product.image_path}` : 
-                  '/icons/file.svg'
-                }
-                alt={product.name}
-                fill
-                priority={index < 2}
-                loading={index > 1 ? 'lazy' : 'eager'}
-                className="object-cover rounded-t-2xl shadow-sm"
-                sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
-                onError={(e) => {
-                // Fallback si la imagen falla al cargar
-                  (e.target as HTMLImageElement).src = "/icons/file.svg";
-                  (e.target as HTMLImageElement).classList.add("p-4", "opacity-70");
-                }}
-              />
+            <div className="flex-1">
+              <div className="relative w-full aspect-square bg-[var(--color-card-bg)]">
+                <Image
+                  src={product.image_path ? 
+                    `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/product-images/Productos/md${product.image_path}` : 
+                    '/icons/file.svg'
+                  }
+                  alt={product.name}
+                  fill
+                  priority={index < 2}
+                  loading={index > 1 ? 'lazy' : 'eager'}
+                  className="object-cover rounded-t-2xl"
+                  onError={(e) => {
+                  // Fallback si la imagen falla al cargar
+                    (e.target as HTMLImageElement).src = "/icons/file.svg";
+                    (e.target as HTMLImageElement).classList.add("p-4", "opacity-70");
+                  }}
+                />
+              </div>
+              <div className="pt-2 px-4">
+                <h2 className="text-md font-normal text-[var(--color-text)] group-hover:text-[var(--color-navbar-bg)] text-left">
+                  {product.name}
+                </h2>
+              </div>
             </div>
-            <div className="p-4">
-              <h2 className="text-xl font-normal text-[var(--color-text)] group-hover:text-pink-600 text-left">
-                {product.name}
-              </h2>
+            <div className="pl-4 pr-2 mt-auto">
               <div className="flex items-center justify-between gap-2">
-                <span>$ {product.price.toLocaleString()}</span>
                 {product.stock <= 0 ? (
-                  <span className="text-red-500 text-md flex items-center h-[40px]">Agotado</span>
+                  <span className="pr-4 text-[var(--color-badge)] text-md flex items-center h-[40px]">Agotado</span>
                 ) : (
-                  <IconButton 
-                    onClick={(e) => handleAddToCart(e, product)}
-                    sx={{ '&:hover': { backgroundColor: 'transparent' } }}
-                  >
-                    <Badge badgeContent={getProductQuantity(product.id)} invisible={getProductQuantity(product.id) == 0}>
-                      <AddIcon />
-                    </Badge>
-                  </IconButton>
+                  <>
+                    <span>$ {product.price.toLocaleString()}</span>
+                    <IconButton 
+                      onClick={(e) => handleAddToCart(e, product)}
+                      sx={{ '&:hover': { backgroundColor: 'var(--color-select)',} }}
+                    >
+                      <Badge
+                        badgeContent={getProductQuantity(product.id)}
+                        invisible={getProductQuantity(product.id) == 0}
+                        sx={{
+                          "& .MuiBadge-badge": {  // Clase interna del badge
+                            backgroundColor: "var(--color-badge)",
+                            color: 'white',
+                          },
+                        }}
+                      >
+                        <AddIcon sx={{color: 'var(--color-navbar-bg)'}}/>
+                      </Badge>
+                    </IconButton>
+                  </>
                 )}
               </div>
             </div>
